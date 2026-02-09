@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Finance Tracker</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="app">
+
+  <!-- Month Filter -->
+  <div class="month-nav">
+    <button id="prevMonth" class="month-btn">⬅️</button>
+    <div id="currentMonth" class="month-pill"></div>
+    <button id="nextMonth" class="month-btn">➡️</button>
+  </div>
+
+  <!-- Header -->
+  <header>
+    <h1>Finance Tracker</h1>
+    <button id="darkToggle">🌙</button>
+    <button id="openModal">+ Add Transaction</button>
+  </header>
+
+  <!-- Summary Cards -->
+  <section class="cards">
+    <div class="card balance">
+      <p>Total Balance</p>
+      <h2 id="balance">₹0</h2>
+    </div>
+    <div class="card income">
+      <p>Income</p>
+      <h2 id="income">₹0</h2>
+    </div>
+    <div class="card expense">
+      <p>Expense</p>
+      <h2 id="expense">₹0</h2>
+    </div>
+  </section>
+
+  <!-- Content -->
+  <section class="content">
+    <div class="transactions">
+      <h3>Transactions</h3>
+      <ul id="transactionList"></ul>
+
+      <!-- Empty State -->
+      <div id="emptyState" class="empty-state hidden">
+        <p>📭 No transactions for this month</p>
+        <span>Add income or expenses to see them here</span>
+      </div>
+    </div>
+
+    <div class="chart">
+      <h3>Expenses</h3>
+      <canvas id="expenseChart"></canvas>
+
+       <h3 style="margin-top:20px;">Income vs Expense</h3>
+  <canvas id="incomeExpenseChart"></canvas>
+    </div>
+  </section>
+
+</div>
+
+<!-- Modal -->
+<div class="modal hidden" id="modal">
+  <div class="modal-content">
+    <h3>Add Transaction</h3>
+
+    <select id="type">
+      <option value="income">Income</option>
+      <option value="expense">Expense</option>
+    </select>
+
+    <select id="category"></select>
+
+    <input type="number" id="amount" placeholder="Amount">
+
+    <button id="addTransaction">Add</button>
+    <button id="closeModal" class="cancel">Cancel</button>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
